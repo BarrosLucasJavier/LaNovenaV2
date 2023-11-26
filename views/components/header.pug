@@ -1,0 +1,16 @@
+header
+    i.fa-solid.fa-bars#openNavbar
+    ul.navbar 
+        li
+            a(href="/") Inicio 
+        li
+            a(href="/catalogo") Catalogo 
+        li
+            a(href="/nosotros") Sobre Nosotros 
+    img.logo(src="/img/laNovena.png", alt="Logo La Novena")
+    i.fa-solid.fa-gear#openLogin
+    .login 
+        form(action="GET")
+            input#user(type="text", name="user", placeholder ="Usuario")
+            input#password(type="password", name="password", placeholder="Contraseña")
+            button(type="submit")#btnSubmit Ingresar

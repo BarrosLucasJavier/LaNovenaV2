@@ -1,0 +1,14 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/style.css")
+        link(rel="shortcut icon", href="/img/favicon.ico?v=2", type="image/x-icon")
+        script(src="https://kit.fontawesome.com/e0b4e5cac3.js", crossorigin="anonymous") 
+        block metas
+    body 
+        include components/header
+        block content 
+        include components/footer
+        script(src="/js/main.js", type="module") 
