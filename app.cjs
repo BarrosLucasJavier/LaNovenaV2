@@ -2,7 +2,7 @@ import express, { urlencoded } from 'express';
 import path from 'path';
 import cors from 'cors';
 import morgan from 'morgan';
-import indexRouter from './routes/index.route.js'
+import indexRouter from './routes/index.route.cjs'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 const app = express();
