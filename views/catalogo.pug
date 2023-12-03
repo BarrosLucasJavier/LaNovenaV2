@@ -1,0 +1,22 @@
+extends layout
+
+block metas 
+    title La Novena:Catalogo 
+    meta(name="description", content="Catalogo de juguetes")
+
+block content 
+    main.productsContainer 
+        .categories 
+            form(action="/catalogo" method="GET")
+                select#categories(name="categories")
+                    option(value="Todos") Todos 
+                    each cat in categories 
+                        option(value=cat) #{cat}
+                button#btnCategories(type="submit") Buscar
+        each val in allProducts
+            .productCard
+                .wrapper
+                    div(style="background-image: url(/img/productos/" + val.imagen + ")").banner-image
+                    h3= val.nombre 
+                    p= val.descripcion
+                    h5="$ " + val.precio
