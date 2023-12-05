@@ -6,6 +6,11 @@ block metas
 
 block content 
     main 
+        section(class=( error ) ? 'error' : 'error errorHide')
+            div 
+                p= error && error.user ? error.user.msg : ""
+                p= error && error.password ? error.password.msg : ""
+            i.fa-solid.fa-xmark#closeError
         section.introSection 
             div.sectionPart1
                 img.bg-waveLight(src="/img/fondos/waveLight.png", alt="ondas celestes")

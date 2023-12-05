@@ -1,0 +1,25 @@
+extends layout 
+
+block metas 
+    title La Novena: Administración
+    meta(name="description", content="Administración del sitio")
+
+block content 
+    main.adminContainer
+        h1 Administración 
+        section.adminOptions 
+            .adminOpt
+                h2 Nuevo Producto
+                i.fa-solid.fa-circle-plus
+                form(action="")
+                    button(type="submit") Ir
+            .adminOpt
+                h2 Editar Producto
+                i.fa-solid.fa-square-pen
+                form(action="")
+                    button(type="submit") Ir
+            .adminOpt
+                h2 Eliminar Producto
+                i.fa-solid.fa-trash
+                form(action="")
+                    button(type="submit") Ir

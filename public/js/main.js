@@ -4,9 +4,11 @@ window.addEventListener('load', ()=>{
 const openNavbar = document.getElementById("openNavbar");
 const openLogin = document.getElementById("openLogin");
 const btnSubmit = document.getElementById("btnSubmit");
+const btnError = document.getElementById("closeError")
 
 const navbar = document.getElementsByClassName("navbar")
 const login = document.getElementsByClassName('login')
+const error = document.getElementsByClassName('error')
 
 openNavbar.addEventListener('click', () =>{
     navbar[0].classList.toggle('show')
@@ -20,9 +22,9 @@ openLogin.addEventListener('click', ()=>{
 })
 
 btnSubmit.addEventListener('click', (e)=>{
-    e.preventDefault();
-    alert("cuidado")
 })
-/* -----  -----  */
-
+/* ----- ERROR -----  */
+btnError.addEventListener('click', () =>{
+    error[0].classList.toggle('errorHide')
+})
 })

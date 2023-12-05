@@ -29,6 +29,23 @@ a {
 i {
     cursor: pointer;
 }
+.btn-light {
+    background-color: var(--color4);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    width: 7.5rem;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+.btn-light:hover {
+    color: var(--color4);
+    background-color: white;
+    transform: scale(1.1);
+}
 /* -------Header-------*/
 header {
     display: flex;
@@ -79,7 +96,7 @@ header {
     top: -300%;
     right: 40px;
     background-color: var(--color4);
-    z-index: 5;
+    z-index: 15;
     padding: 1rem;
     border-radius: 1rem;
     transition: all 1s ease-out;
@@ -124,6 +141,23 @@ footer {
 }
 
 /* ------- Index Main -------*/
+
+.error {
+    position: fixed;
+    top: 18px;
+    left: 0%;
+    z-index: 99;
+    background-color: rgb(249, 82, 52);
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+.errorHide {
+    display: none;
+}
 
 .sectionPart1 {
     background-color: var(--color4);
@@ -208,6 +242,7 @@ footer {
     width: 100%;
     padding: 1rem;
     border-radius: 12px;
+    margin-top: 2rem;
 }
 .categories form{
     display: flex;
@@ -254,4 +289,34 @@ footer {
 .wrapper p{
     text-align: justify;
     margin-bottom: 1rem;
+}
+
+/* ----- Administracion ----- */
+.adminContainer {
+    padding: 1rem;
+    margin-top: 4rem;
+    color: var(--color1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.adminOpt{
+    max-width: 768px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.25);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);  
+    padding: 28px;  
+    filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+    margin: 1rem 0;
+    width: 350px;
+}
+.adminOpt i{
+    font-size: 4rem;
 }

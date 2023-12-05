@@ -10,7 +10,7 @@ header
     img.logo(src="/img/laNovena.png", alt="Logo La Novena")
     i.fa-solid.fa-gear#openLogin
     .login 
-        form(action="GET")
+        form(action="/admin" method="POST")
             input#user(type="text", name="user", placeholder ="Usuario")
             input#password(type="password", name="password", placeholder="Contraseña")
             button(type="submit")#btnSubmit Ingresar
