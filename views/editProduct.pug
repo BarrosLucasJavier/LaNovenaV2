@@ -1,0 +1,30 @@
+extends layout 
+
+block metas 
+    title La Novena: Edición 
+    meta(name="description", content="Edición de productos")
+
+block content 
+    main 
+        h1 Edición de producto 
+        form.formulario(action="")
+            div.formularioSeccion
+                label(for="nombre") Nombre: 
+                input#nombre(type="text", name="nombre" value=product.nombre)
+            div.formularioSeccion
+                label(for="category") Categoria: 
+                select#category(name="category")
+                    each cat in categ 
+                        option(value=cat, selected=(cat === product.categoria)) #{cat}
+            div.formularioSeccion 
+                label(for="descripcion") Descripción
+                textarea(name="descripcion", cols="30", rows="10")=product.descripcion 
+            div.formularioSeccion
+                label(for="precio") Precio: 
+                input#precio(type="text", name="precio" value=product.precio)
+            div
+                label(for="encargo") ¿Por encargo?:
+                label.encargoLabel(for="si") Si 
+                input(type="radio", name="encargo", id="si", value="Si", checked=(product.vendido === true ? true : false))
+                label.encargoLabel(for="no") No    
+                input(type="radio", name="encargo", id="no", value="No", checked=(product.vendido === true ? false : true))

@@ -5,6 +5,4 @@ const router = express.Router();
 
 router.get('/', homeController.home);
 
-router.post('/admin', loginValidation, homeController.login)
-
 export default router

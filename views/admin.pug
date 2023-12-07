@@ -8,18 +8,26 @@ block content
     main.adminContainer
         h1 Administración 
         section.adminOptions 
-            .adminOpt
-                h2 Nuevo Producto
+            .adminOpt 
                 i.fa-solid.fa-circle-plus
-                form(action="")
-                    button(type="submit") Ir
+                span Crear nuevo
             .adminOpt
-                h2 Editar Producto
-                i.fa-solid.fa-square-pen
-                form(action="")
-                    button(type="submit") Ir
-            .adminOpt
-                h2 Eliminar Producto
-                i.fa-solid.fa-trash
-                form(action="")
-                    button(type="submit") Ir
+                i.fa-solid.fa-magnifying-glass
+                input#adminBusqueda(type="text", name="busqueda" placeholder="Buscar Producto")
+        section.adminProduct 
+            each product in allProducts
+                .productCard
+                    .wrapper
+                        div(style="background-image: url(/img/productos/" + product.imagen + ")").banner-image
+                        h3= product.nombre 
+                        p= product.descripcion
+                        h5="$ " + product.precio
+                    .opt
+                        form(action="/admin/edit/" + product.id) 
+                            button.btn-light(type="submit") 
+                                i.fa-solid.fa-pen-to-square 
+                                span Editar
+                        form(action="/admin/delete/" + product.id) 
+                            button.btn-light(type="submit") 
+                                i.fa-solid.fa-trash-can
+                                span Borrar

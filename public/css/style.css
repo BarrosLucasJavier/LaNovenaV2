@@ -293,30 +293,76 @@ footer {
 
 /* ----- Administracion ----- */
 .adminContainer {
-    padding: 1rem;
-    margin-top: 4rem;
+    margin-top: 5rem;
+    text-align: center;
     color: var(--color1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
-.adminOpt{
-    max-width: 768px;
-    height: 200px;
+.adminOptions {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(17, 25, 40, 0.25);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);  
-    padding: 28px;  
-    filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
-    margin: 1rem 0;
-    width: 350px;
+    padding: 1rem;
+    color: var(--color3);
+    background-color: var(--color4);
+    gap: 1rem;
 }
-.adminOpt i{
-    font-size: 4rem;
+.adminOpt {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-top: 1px solid var(--color2);
+    border-bottom: 1px solid var(--color2);
+    padding: 0.5rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+.adminOpt i {
+    font-size: 2rem;
+}
+.adminOpt input{
+    padding: 0.3rem;
+    border: none;
+    border-radius: 4px;
+}
+.adminProduct {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.opt {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.opt button {
+    padding: 0.5rem 0.7rem;
+}
+.opt i{
+    margin: 0 0.3rem;
+}
+/* ----- Edición ----- */
+.formulario {
+    background-color: var(--color4);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.formulario input, .formulario textarea, .formulario select {
+    padding: 0.4rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+}
+.formulario label {
+    color: var(--color3);
+}
+.formularioSeccion {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.encargoLabel {
+    margin-left: 0.8rem;
 }

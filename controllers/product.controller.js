@@ -13,7 +13,6 @@ const productController = {
                 return res.render("catalogo", {allProducts, categories:uniquesCategories})
             } else {
                 const filtered = allProducts.filter(prod => prod.categoria === req.query.categories)
-                console.log("productos",filtered);
                 return res.render("catalogo", {allProducts: filtered, categories:uniquesCategories})
             }
         } catch (error) {
