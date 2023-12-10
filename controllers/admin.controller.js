@@ -25,8 +25,29 @@ const adminController = {
         const uniquesCategories = categories.filter((value, index, self) => {
             return self.indexOf(value) === index;
         })
-
         res.render("editProduct", { product, categ: uniquesCategories })
+    },
+    update: async (req, res) => {
+        try {
+            const { id } = req.params
+            const { nombre, category, descripcion, precio, encargo } = req.body
+            const errors = validationResult(req)
+            const allProducts = await productService.getAll();
+            const categories = allProducts.map((product) => product.categoria)
+            const uniquesCategories = categories.filter((value, index, self) => {
+                return self.indexOf(value) === index;
+            })
+            if (errors.isEmpty()) {
+                res.send('asdaosudh')
+            } else {
+                const error = errors.mapped()
+                res.render("editProduct", {product:{...req.body, id}, categ: uniquesCategories, error })
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 }
 export default adminController

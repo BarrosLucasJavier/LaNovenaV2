@@ -122,6 +122,11 @@ header {
     color: var(--color3);
     box-shadow: 5px 5px 10px black;
 }
+.msgError{
+    color: rgb(255, 103, 76);
+    margin: 0.2rem 0;
+    font-weight: bold;
+}
 /* ------- Footer -------*/
 footer {
     background-color: var(--color1);
@@ -342,6 +347,14 @@ footer {
     margin: 0 0.3rem;
 }
 /* ----- Edición ----- */
+.editContainer {
+    margin-top: 5rem;
+}
+.editContainer h1 {
+    margin: 1rem 0;
+    text-align: center;
+    color: var(--color1);
+}
 .formulario {
     background-color: var(--color4);
     padding: 1rem;
@@ -365,4 +378,28 @@ footer {
 }
 .encargoLabel {
     margin-left: 0.8rem;
+}
+.editButtons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.editButtons button {
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    background-color: var(--color3);
+    color: var(--color2);
+    border: 1px solid var(--color2);
+    border-radius: 8px;
+}
+.editButtons button:hover {
+    cursor: pointer;
+    background-color: var(--color2);
+    color: var(--color3);
+    border: 1px solid var(--color3);
+}
+.uploadImg {
+    border: var(--color2) 1.5px solid;
+    padding: 0.5rem;
+    border-radius: 8px;
 }

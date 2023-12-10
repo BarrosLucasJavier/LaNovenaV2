@@ -5,22 +5,30 @@ block metas
     meta(name="description", content="Edición de productos")
 
 block content 
-    main 
+    main.editContainer 
         h1 Edición de producto 
-        form.formulario(action="")
+        form.formulario(action=`/admin/update/${product.id}?_method=PUT` method="POST" enctype="multipart/form-data" )
             div.formularioSeccion
                 label(for="nombre") Nombre: 
                 input#nombre(type="text", name="nombre" value=product.nombre)
+                if (error && error.nombre)
+                    small.msgError #{error.nombre.msg}
             div.formularioSeccion
                 label(for="category") Categoria: 
                 select#category(name="category")
                     each cat in categ 
                         option(value=cat, selected=(cat === product.categoria)) #{cat}
+                if (error && error.category)
+                    small.msgError #{error.category.msg}
             div.formularioSeccion 
                 label(for="descripcion") Descripción
+                if (error && error.descripcion)
+                    small.msgError #{error.descripcion.msg}
                 textarea(name="descripcion", cols="30", rows="10")=product.descripcion 
             div.formularioSeccion
                 label(for="precio") Precio: 
+                if (error && error.precio)
+                    small.msgError #{error.precio.msg}
                 input#precio(type="text", name="precio" value=product.precio)
             div
                 label(for="encargo") ¿Por encargo?:
@@ -28,3 +36,9 @@ block content
                 input(type="radio", name="encargo", id="si", value="Si", checked=(product.vendido === true ? true : false))
                 label.encargoLabel(for="no") No    
                 input(type="radio", name="encargo", id="no", value="No", checked=(product.vendido === true ? false : true))
+            div.uploadImg 
+                label(for="image") Cargar Imagen
+                input#image(type="file", name="image")
+            div.editButtons 
+                button(type="submit") Guardar 
+                button(type="reset") Cancelar
