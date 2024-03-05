@@ -12,8 +12,13 @@ block content
                 i.fa-solid.fa-circle-plus
                 span Crear nuevo
             .adminOpt
-                i.fa-solid.fa-magnifying-glass
-                input#adminBusqueda(type="text", name="busqueda" placeholder="Buscar Producto")
+                form(action="/admin/search", method="get") 
+                    input#adminBusqueda(type="text", name="busqueda" placeholder="Nombre del Producto")
+                    button(type="submit") Buscar
+                        i.fa-solid.fa-magnifying-glass
+            .adminOpt 
+                i.fa-solid.fa-right-from-bracket 
+                a(href="/admin/logout")  Salir
         section.adminProduct 
             each product in allProducts
                 .productCard
