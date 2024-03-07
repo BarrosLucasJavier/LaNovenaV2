@@ -14,25 +14,31 @@ block content
             .adminOpt
                 form(action="/admin/search", method="get") 
                     input#adminBusqueda(type="text", name="busqueda" placeholder="Nombre del Producto")
-                    button(type="submit") Buscar
-                        i.fa-solid.fa-magnifying-glass
+                    button.btnSearch(type="submit") Buscar
             .adminOpt 
                 i.fa-solid.fa-right-from-bracket 
                 a(href="/admin/logout")  Salir
         section.adminProduct 
-            each product in allProducts
-                .productCard
-                    .wrapper
-                        div(style="background-image: url(/img/productos/" + product.imagen + ")").banner-image
-                        h3= product.nombre 
-                        p= product.descripcion
-                        h5="$ " + product.precio
-                    .opt
-                        form(action="/admin/edit/" + product.id) 
-                            button.btn-light(type="submit") 
-                                i.fa-solid.fa-pen-to-square 
-                                span Editar
-                        form(action="/admin/delete/" + product.id) 
-                            button.btn-light(type="submit") 
-                                i.fa-solid.fa-trash-can
-                                span Borrar
+            if allProducts.length
+                each product in allProducts
+                    .productCard
+                        .wrapper
+                            div(style="background-image: url(/img/productos/" + product.imagen + ")").banner-image
+                            h3= product.nombre 
+                            p= product.descripcion
+                            h5="$ " + product.precio
+                        .opt
+                            form(action="/admin/edit/" + product.id) 
+                                button.btn-light(type="submit") 
+                                    i.fa-solid.fa-pen-to-square 
+                                    span Editar
+                            form#formDelete(action="/admin/delete/" + product.id) 
+                                button.btn-light(type="submit") 
+                                    i.fa-solid.fa-trash-can
+                                    span Borrar
+            else 
+                .noResult
+                    p No hay resultados para esa busqueda
+                    a(href="/admin") Volver 
+        section.adminModal 
+            h3 ¿Está seguro de que desea eliminar este producto de forma permanente?

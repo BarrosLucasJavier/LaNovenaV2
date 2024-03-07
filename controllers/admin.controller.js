@@ -26,13 +26,20 @@ const adminController = {
         }
     },
     edit: async (req, res) => {
-        const product = await productService.getOne(req.params.id)
-        const allProducts = await productService.getAll();
-        const categories = allProducts.map((product) => product.categoria)
-        const uniquesCategories = categories.filter((value, index, self) => {
-            return self.indexOf(value) === index;
-        })
-        res.render("editProduct", { product, categ: uniquesCategories })
+        try {
+            const product = await productService.getOne(req.params.id)
+            const allProducts = await productService.getAll();
+            const categories = allProducts.map((product) => product.categoria)
+
+            const uniquesCategories = categories.filter((value, index, self) => {
+                return self.indexOf(value) === index;
+            })
+
+            res.render("editProduct", { product, categ: uniquesCategories })
+
+        } catch (error) {
+            console.log(error);
+        }
     },
     update: async (req, res) => {
         try {
@@ -74,14 +81,29 @@ const adminController = {
     },
     search: async (req, res) => {
         try {
-            const  {busqueda}  = req.query
-            const allProducts = await productService.getAll()
-            console.log('busqueda',busqueda);
-            const producto = allProducts.filter((product) => product.nombre.toLowerCase().includes(busqueda.toLowerCase()))
-            console.log(producto);
+            const { busqueda } = req.query
+            const products = await productService.getAll()
+
+            if (busqueda) {
+                const allProducts = products.filter((product) => product.nombre.toLowerCase().includes(busqueda.toLowerCase()))
+
+                return res.render("admin", { allProducts })
+            } else {
+                return res.render("admin", { allProducts: products })
+            }
         } catch (error) {
             console.log(error)
         }
+    },
+    create: async (req, res) => {
+        try {
+            
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    delete: async (req, res) => {
+
     }
 }
 export default adminController
