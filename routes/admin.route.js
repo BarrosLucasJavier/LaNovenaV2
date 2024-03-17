@@ -4,17 +4,20 @@ import adminController from '../controllers/admin.controller.js';
 import upload from '../middleware/uploadFile.js';
 import productValidation from '../validation/product.validation.js';
 import isAuthenticated from '../middleware/auth.js'
+
 const router = express.Router();
 
-router.get('/',isAuthenticated, adminController.loginValidation)
+router.get('/', isAuthenticated, adminController.loginValidation)
 router.get('/login', adminController.login)
 router.post('/', loginValidation, adminController.loginValidation)
 
-router.get("/logout",adminController.logout)
+router.get("/logout", adminController.logout)
 
-router.get('/edit/:id', isAuthenticated,adminController.edit)
+router.get('/edit/:id', isAuthenticated, adminController.edit)
 router.put('/update/:id', isAuthenticated, upload.single('imagen'), productValidation, adminController.update)
 
-router.get('/search', isAuthenticated,adminController.search)
+router.delete('/delete/:id', isAuthenticated, adminController.delete)
+
+router.get('/search', isAuthenticated, adminController.search)
 
 export default router

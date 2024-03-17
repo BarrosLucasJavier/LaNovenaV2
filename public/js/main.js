@@ -34,9 +34,24 @@ window.addEventListener('load', () => {
         })
     }
     /* Delete product */
-    const formDelete = document.getElementById('formDelete')
-    formDelete.addEventListener('submit', (e) => {
-        e.preventDefault()
-        console.log('borrado');
+    const formDelete = document.querySelectorAll('#formDelete')
+    const modal = document.getElementsByClassName('containerModal')
+    const btnCancelar = document.getElementById('btn-cancelar')
+    const btnEliminar = document.getElementById('btn-eliminar')
+    let productoEliminar = null
+
+    formDelete.forEach((buton) =>{
+        buton.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            productoEliminar = buton;
+            modal[0].classList.add('modalOpen');
+        })
+    })
+
+    btnCancelar.addEventListener('click', ()=>{
+        modal[0].classList.remove('modalOpen');
+    })
+    btnEliminar.addEventListener('click',()=>{
+        productoEliminar.submit();
     })
 })

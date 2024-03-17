@@ -103,7 +103,16 @@ const adminController = {
         }
     },
     delete: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const deleted = await productService.delete(id);
+            const allProducts = await productService.getAll()
 
+            return res.render("admin", { allProducts })
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
 }
 export default adminController

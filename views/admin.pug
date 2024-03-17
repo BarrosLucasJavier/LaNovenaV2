@@ -32,7 +32,7 @@ block content
                                 button.btn-light(type="submit") 
                                     i.fa-solid.fa-pen-to-square 
                                     span Editar
-                            form#formDelete(action="/admin/delete/" + product.id) 
+                            form#formDelete(action="/admin/delete/" + product.id + '?_method=DELETE' method='POST') 
                                 button.btn-light(type="submit") 
                                     i.fa-solid.fa-trash-can
                                     span Borrar
@@ -40,5 +40,8 @@ block content
                 .noResult
                     p No hay resultados para esa busqueda
                     a(href="/admin") Volver 
-        section.adminModal 
-            h3 ¿Está seguro de que desea eliminar este producto de forma permanente?
+        .containerModal
+            .adminModal 
+                h3 ¿Está seguro de que desea eliminar este producto de forma permanente?
+                button#btn-eliminar(type="submit") Aceptar 
+                button#btn-cancelar(type="reset") Cancelar
