@@ -1,5 +1,7 @@
 import { validationResult } from "express-validator"
 import { productService } from "../services/products.service.js"
+import fs from 'fs'
+import path from 'path'
 
 
 const adminController = {
@@ -10,6 +12,7 @@ const adminController = {
         try {
             const errors = validationResult(req)
             const allProducts = await productService.getAll()
+            allProducts.sort((a, b) => a.nombre.localeCompare(b.nombre));
             if (req.session.user) {
                 return res.render("admin", { allProducts })
             }
@@ -71,7 +74,6 @@ const adminController = {
         } catch (error) {
             console.log(error);
         }
-
     },
     logout: (req, res) => {
         req.session.destroy(() => {
@@ -95,9 +97,44 @@ const adminController = {
             console.log(error)
         }
     },
+    newProduct: async (req, res) => {
+
+        const allProducts = await productService.getAll();
+        const categories = allProducts.map((product) => product.categoria)
+        const uniquesCategories = categories.filter((value, index, self) => {
+            return self.indexOf(value) === index;
+        })
+
+        res.render("newProduct", { categ: uniquesCategories })
+    },
     create: async (req, res) => {
         try {
-            
+            const { nombre, category, descripcion, precio, encargo } = req.body
+            const errors = validationResult(req)
+
+            const allProducts = await productService.getAll();
+            const categories = allProducts.map((product) => product.categoria)
+            const uniquesCategories = categories.filter((value, index, self) => {
+                return self.indexOf(value) === index;
+            })
+            if (errors.isEmpty()) {
+
+                const prod = {
+                    nombre,
+                    categoria: category,
+                    descripcion,
+                    precio: +precio,
+                    imagen: req.file && req.file.filename ? req.file.filename : 'no-image.png',
+                    vendido: encargo === "Si" ? true : false
+                }
+                await productService.store(prod)
+                return res.redirect("/admin");
+            } else {
+                console.log(errors);
+                const error = errors.mapped()
+                res.render("newProduct", { categ: uniquesCategories, error })
+            }
+
         } catch (error) {
             console.log(error);
         }
@@ -106,10 +143,14 @@ const adminController = {
         try {
             const { id } = req.params;
             const deleted = await productService.delete(id);
-            const allProducts = await productService.getAll()
 
-            return res.render("admin", { allProducts })
-            
+            if (deleted.imagen !== 'no-image.png') {
+                const url = path.join(process.cwd(), `/public/img/productos/${deleted.imagen}`) ;
+                fs.existsSync(url) && fs.unlinkSync(url);
+            }
+
+            return res.redirect("/admin");
+
         } catch (error) {
             console.log(error);
         }

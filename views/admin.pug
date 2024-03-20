@@ -10,7 +10,7 @@ block content
         section.adminOptions 
             .adminOpt 
                 i.fa-solid.fa-circle-plus
-                span Crear nuevo
+                a(href="/admin/create")  Crear nuevo
             .adminOpt
                 form(action="/admin/search", method="get") 
                     input#adminBusqueda(type="text", name="busqueda" placeholder="Nombre del Producto")

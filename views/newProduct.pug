@@ -1,0 +1,47 @@
+extends layout 
+
+block metas 
+    title La Novena: Creación de Producto 
+    meta(name="description", content="Creación de Producto")
+
+block content 
+    main.editContainer 
+        h1 Creación de Producto 
+        form.formulario(action=`/admin/create` method="POST" enctype="multipart/form-data" )
+            div.formularioSeccion
+                label(for="nombre") Nombre: 
+                input#nombre(type="text", name="nombre" )
+                if (error && error.nombre)
+                    small.msgError #{error.nombre.msg}
+            div.formularioSeccion
+                label(for="category") Categoria: 
+                select#category(name="category")
+                    each cat in categ 
+                        option(value=cat) #{cat}
+                if (error && error.category)
+                    small.msgError #{error.category.msg}
+            div.formularioSeccion 
+                label(for="descripcion") Descripción
+                if (error && error.descripcion)
+                    small.msgError #{error.descripcion.msg}
+                textarea(name="descripcion", cols="30", rows="10")
+            div.formularioSeccion
+                label(for="precio") Precio: 
+                if (error && error.precio)
+                    small.msgError #{error.precio.msg}
+                input#precio(type="text", name="precio")
+            div
+                label(for="encargo") ¿Por encargo?:
+                label.encargoLabel(for="si") Si 
+                input(type="radio", name="encargo", id="si", value="Si")
+                label.encargoLabel(for="no") No    
+                input(type="radio", name="encargo", id="no", value="No")
+            div(class="uploadImg") 
+                    label(for="image") Imagen
+                    .containerImg(style=`background-image: url('/img/productos/no-image.png')`) 
+                    input#imageUrl(type="file", name="imagen")
+            div.editButtons 
+                button(type="submit") Guardar 
+                button(type="reset") Cancelar
+                button(type="") Volver 
+                    a(href="/admin") 
