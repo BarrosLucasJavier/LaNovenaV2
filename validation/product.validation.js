@@ -1,13 +1,13 @@
-import  { check, body }  from 'express-validator'
+import  { check }  from 'express-validator'
 
 const productValidation = [
-    check('nombre')
+    check('name')
         .notEmpty().withMessage('Debes introducir un nombre').bail(),
     check('category')
         .notEmpty().withMessage('Debes introducir una categoria').bail(),
-    check('descripcion')
+    check('description')
         .notEmpty().withMessage('Debes introducir una descripción').bail(),
-    check('precio')
+    check('price')
         .notEmpty().withMessage('Debes introducir un precio').bail(),
 
 ]

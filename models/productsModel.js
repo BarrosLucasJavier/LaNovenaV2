@@ -2,24 +2,24 @@ import mongoose from "mongoose";
 const { Schema, model } = mongoose;
 
 const productSchema = new Schema({
-    nombre: {
+    name: {
         type: String,
         require: true
     },
-    categoria: {
+    category: {
         type: String,
         require: true
     },
-    descripcion: {
+    description: {
         type: String
     },
-    precio: {
+    price: {
         type: Number
     },
-    imagen: {
+    image: {
         type: String
     },
-    vendido: {
+    sold: {
         type: Boolean
     },
     createdAt: {

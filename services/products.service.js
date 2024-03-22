@@ -24,7 +24,7 @@ export const productService = {
     },
     filter:(category) => {
         try {
-            return Product.find({categoria: category})
+            return Product.find({category})
         } catch (error) {
             return error
         }

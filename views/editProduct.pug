@@ -9,39 +9,38 @@ block content
         h1 Edición de producto 
         form.formulario(action=`/admin/update/${product.id}?_method=PUT` method="POST" enctype="multipart/form-data" )
             div.formularioSeccion
-                label(for="nombre") Nombre: 
-                input#nombre(type="text", name="nombre" value=product.nombre)
-                if (error && error.nombre)
-                    small.msgError #{error.nombre.msg}
+                label(for="name") Nombre: 
+                input#name(type="text", name="name" value=product.name)
+                if (error && error.name)
+                    small.msgError #{error.name.msg}
             div.formularioSeccion
                 label(for="category") Categoria: 
                 select#category(name="category")
-                    each cat in categ 
-                        option(value=cat, selected=(cat === product.categoria)) #{cat}
+                    each cat in categories  
+                        option(value=cat, selected=(cat === product.category)) #{cat}
                 if (error && error.category)
                     small.msgError #{error.category.msg}
             div.formularioSeccion 
-                label(for="descripcion") Descripción
-                if (error && error.descripcion)
-                    small.msgError #{error.descripcion.msg}
-                textarea(name="descripcion", cols="30", rows="10")=product.descripcion 
+                label(for="description") Descripción
+                if (error && error.description)
+                    small.msgError #{error.description.msg}
+                textarea(name="description", cols="30", rows="10")=product.description 
             div.formularioSeccion
-                label(for="precio") Precio: 
-                if (error && error.precio)
-                    small.msgError #{error.precio.msg}
-                input#precio(type="text", name="precio" value=product.precio)
+                label(for="price") Precio: 
+                if (error && error.price)
+                    small.msgError #{error.price.msg}
+                input#price(type="text", name="price" value=product.price)
             div
-                label(for="encargo") ¿Por encargo?:
+                label(for="order") ¿Por encargo?:
                 label.encargoLabel(for="si") Si 
-                input(type="radio", name="encargo", id="si", value="Si", checked=(product.vendido === true ? true : false))
+                input(type="radio", name="order", id="si", value="Si", checked=(product.sold === true ? true : false))
                 label.encargoLabel(for="no") No    
-                input(type="radio", name="encargo", id="no", value="No", checked=(product.vendido === true ? false : true))
+                input(type="radio", name="order", id="no", value="No", checked=(product.sold === true ? false : true))
             div(class="uploadImg") 
                     label(for="image") Imagen
-                    .containerImg(style=`background-image: url('/img/productos/${product.imagen ? product.imagen : 'no-image.png'}')`) 
-                    input#imageUrl(type="file", name="imagen")
+                    .containerImg(style=`background-image: url('/img/productos/${product.image ? product.image : 'no-image.png'}')`) 
+                    input#imageUrl(type="file", name="image")
             div.editButtons 
                 button(type="submit") Guardar 
                 button(type="reset") Cancelar
-                button(type="") Volver 
-                    a(href="/admin") 
+        a(href="/admin") Volver

@@ -13,7 +13,7 @@ block content
                 a(href="/admin/create")  Crear nuevo
             .adminOpt
                 form(action="/admin/search", method="get") 
-                    input#adminBusqueda(type="text", name="busqueda" placeholder="Nombre del Producto")
+                    input#adminBusqueda(type="text", name="searches" placeholder="Nombre del Producto")
                     button.btnSearch(type="submit") Buscar
             .adminOpt 
                 i.fa-solid.fa-right-from-bracket 
@@ -23,10 +23,10 @@ block content
                 each product in allProducts
                     .productCard
                         .wrapper
-                            div(style="background-image: url(/img/productos/" + product.imagen + ")").banner-image
-                            h3= product.nombre 
-                            p= product.descripcion
-                            h5="$ " + product.precio
+                            div(style="background-image: url(/img/productos/" + product.image + ")").banner-image
+                            h3= product.name 
+                            p= product.description
+                            h5="$ " + product.price
                         .opt
                             form(action="/admin/edit/" + product.id) 
                                 button.btn-light(type="submit") 
