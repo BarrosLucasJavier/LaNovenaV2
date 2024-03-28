@@ -9,8 +9,8 @@ window.addEventListener('load', () => {
 
 
     openNavbar.addEventListener('click', () => {
-        navbar[0].classList.toggle('show')
-        openNavbar.classList.toggle('fa-bars')
+        navbar[0].classList.toggle('navbarHide')
+        openNavbar.classList.toggle('fa-chevron')
         openNavbar.classList.toggle('fa-xmark')
     })
 

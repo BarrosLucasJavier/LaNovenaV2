@@ -6,9 +6,10 @@ import { fileURLToPath } from 'url'
 import cors from 'cors';
 import morgan from 'morgan';
 import methodOverride from 'method-override'
-import indexRouter from './routes/index.route.js'
-import productsRouter from './routes/products.route.js'
-import adminRouter from './routes/admin.route.js'
+import indexRouter from './routes/index.routes.js'
+import productsRouter from './routes/products.routes.js'
+import adminRouter from './routes/admin.routes.js'
+import aboutRouter from './routes/aboutUs.routes.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
@@ -36,5 +37,6 @@ app.use(
 app.use("/", indexRouter)
 app.use("/catalogo", productsRouter)
 app.use("/admin", adminRouter)
+app.use("/nosotros", aboutRouter)
 
 export default app

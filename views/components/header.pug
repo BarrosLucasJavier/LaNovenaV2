@@ -1,12 +1,20 @@
 header
-    i.fa-solid.fa-bars#openNavbar
-    ul.navbar 
-        li
-            a(href="/") Inicio 
-        li
-            a(href="/catalogo") Catalogo 
-        li
-            a(href="/nosotros") Sobre Nosotros 
-        li
-            a(href="/admin") Administración
-    img.logo(src="/img/laNovena.png", alt="Logo La Novena")
+    .headerContainer
+        .titleContainer
+            h1 La Novena
+            h2 Centro de día
+            i.fa-solid.fa-chevron-down#openNavbar
+        .navbarContainer.dropDownMenu
+            ul.navbar.dropDownMenu
+                li.navbarOption
+                    i.fa-solid.fa-house
+                    a(href="/") Inicio 
+                li.navbarOption
+                    i.fa-solid.fa-store
+                    a(href="/catalogo") Catalogo 
+                li.navbarOption
+                    i.fa-solid.fa-users-line
+                    a(href="/nosotros") Sobre Nosotros 
+                li.navbarOption
+                    i.fa-solid.fa-gear
+                    a(href="/admin") Administración
