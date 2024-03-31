@@ -4,13 +4,13 @@ window.addEventListener('load', () => {
     const openNavbar = document.getElementById("openNavbar");
     const btnError = document.getElementById("closeError")
 
-    const navbar = document.getElementsByClassName("navbar")
+    const navbar = document.getElementsByClassName("navbarContainer")
     const error = document.getElementsByClassName('error')
 
 
     openNavbar.addEventListener('click', () => {
-        navbar[0].classList.toggle('navbarHide')
-        openNavbar.classList.toggle('fa-chevron')
+        navbar[0].classList.toggle('navbarShow')
+        openNavbar.classList.toggle('fa-bars')
         openNavbar.classList.toggle('fa-xmark')
     })
 
