@@ -3,6 +3,7 @@ window.addEventListener('load', () => {
     /* ----- Navbar -----  */
     const openNavbar = document.getElementById("openNavbar");
     const btnError = document.getElementById("closeError")
+    const menuDescription = document.getElementById('menuDescription')
 
     const navbar = document.getElementsByClassName("navbarContainer")
     const error = document.getElementsByClassName('error')
@@ -12,6 +13,12 @@ window.addEventListener('load', () => {
         navbar[0].classList.toggle('navbarShow')
         openNavbar.classList.toggle('fa-bars')
         openNavbar.classList.toggle('fa-xmark')
+        if (openNavbar.classList.contains('fa-xmark')) {
+            menuDescription.innerHTML='Cerrar'
+        }else{
+            menuDescription.innerHTML='Menu'
+        }
+
     })
 
     /* ----- ERROR -----  */

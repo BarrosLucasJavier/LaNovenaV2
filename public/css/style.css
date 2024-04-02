@@ -32,7 +32,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 50;
 }
 .blurContainer{
     height: 4rem;
@@ -57,6 +57,7 @@ body{
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+    z-index: 2;
 }
 .navbarContainer{
     position: absolute;
@@ -67,18 +68,16 @@ body{
     margin: 0.6rem;
     background-color: var(--color2);
     border-radius: 8px;
-    /* display: none; */
     transform: scale(0);
-    /* animacion */
-    /* animation: growMenu 0.5s ease-in-out alternate-reverse; */
     transform-origin: top right;
     transition: transform 0.5s ease;
+    z-index: 1;
 }
 .navbar{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     padding: 5rem 0;
     font-size: 1.5rem;
@@ -94,13 +93,18 @@ body{
 .navbarShow{
     transform: scale(1);
 }
+.socialContainer{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: var(--color3);
+}
+.titleMenu{
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    background-color: var(--color3);
+}
 
 /* Animations */
-@keyframes growMenu {
-    from{
-        transform: scale(0,0);
-    }
-    to{
-        transform: scale(1,1);
-    }
-}
