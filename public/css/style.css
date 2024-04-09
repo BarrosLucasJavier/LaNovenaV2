@@ -1,8 +1,7 @@
 /*----- Variables y Fuentes -----*/
 :root{
-    --color1: #304362;
-    --color2: #ce7939;
-    --color3: #ffffff96;
+    --color1: #39ce4f;
+    --color2: #e5969696;
     --textColor: #585857;
 }
 
@@ -22,43 +21,38 @@
     background-image: url('../img/fondos/fondo.svg');
     color: var(--textColor);
     display: grid;
-    grid-template-rows: 90px 1fr 120px;
+    grid-template-rows: 6rem 1fr 120px;
     grid-template-columns: 1fr;
     height: 100dvh;
 }
 /* ----- Header ----- */
-h1{
-    text-align: center;
-    margin: 1rem 0;
-}
 .titleContainer{
     position: fixed;
-    padding: 0.6rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 50;
 }
 .blurContainer{
-    height: 4rem;
-    width: calc(100% - 4.7rem);
-    backdrop-filter: blur(8px);
-    background-color: rgba(122, 118, 114, 0.7);
-    border-radius: 8px;
+    height: 6rem;
+    width: 100%;
+    padding: 0.6rem;
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 245, 236, 0.7);
+    border-radius: 0 0 8px 8px ;
+    border-bottom: 2px solid var(--color1);
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
 }
-.blurContainer h1 {
-    position: absolute;
-    z-index: 15;
-    top: calc(50% - 18.5px);
-    left: 20%;
+.blurContainer img {
+    height: 65px;
 }
 .menuContainer{
+    position: relative;
     width: 65px;
     height: 65px;
-    background-color: var(--color2);
+    background-color: var(--color1);
     color: white;
     display: flex;
     gap: 0.3rem;
@@ -75,11 +69,11 @@ h1{
     width: calc(100% - 1.2rem);
     height: calc(100vh - 1.2rem);
     margin: 0.6rem;
-    background-color: var(--color2);
+    background-color: var(--color1);
     color: white;
     border-radius: 8px;
     transform: scale(0);
-    transform-origin: top right;
+    transform-origin: calc(100% - 0.6rem) 0.6rem;
     transition: transform 0.5s ease;
     z-index: 1;
 }
@@ -128,6 +122,10 @@ h1{
 .errorHide{
     display: none;
 }
+.introTitle{
+    margin: 1rem 0;
+    text-align: center;
+}
 .introSection{
     box-shadow: 1px 1px 19px #00000067;
     border-radius: 8px;
@@ -157,7 +155,7 @@ h1{
 }
 .textSection i{
     font-size: 2rem;
-    color: var(--color2);
+    color: var(--color1);
 }
 .infoSection{
     width: 96vw;
@@ -170,6 +168,15 @@ h1{
     gap: 1rem;
     font-size: 1.3rem;
     text-align: justify;
+}
+.headSection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color1);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
 }
 .infoSection i{
     font-size: 3rem;
@@ -186,7 +193,7 @@ h1{
 }
 .infoArrow i{
     font-size: 1.5rem;
-    color: var(--color2);
+    color: var(--color1);
 }
 /* ----- Footer ----- */
 .infoFooter{
@@ -194,6 +201,11 @@ h1{
     flex-direction: column;
     width: 96vw;
     margin: 0.5rem auto;
+    border-top: 3px solid var(--textColor);
+}
+.infoFooter img{
+    max-width: 25vw;
+    margin: 0.7rem auto;
 }
 .infoFooterContainer{
     border-left: 3px solid var(--textColor);
@@ -202,14 +214,14 @@ h1{
     font-size: 1.5rem;
 }
 .infoFooterContainer h3{
-    color: var(--color2);
+    color: var(--color1);
     margin: 0.7rem 0;
 }
 .infoFooterContainer p{
     font-size: 1.3rem;
 }
 .socialFooter{
-    background-color: var(--color2);
+    background-color: var(--color1);
     padding: 1rem;
     font-size: 1.8rem;
     display: flex;
@@ -218,4 +230,65 @@ h1{
 .socialFooter i{
     color: white;
     filter: drop-shadow(1px 1px 10px rgb(0, 0, 0));
+}
+/* ----- Catalogue ----- */
+
+.productsContainer{
+    padding: 1rem 0;
+}
+.categories{
+    background-color: var(--color1);
+    padding: 1rem;
+}
+.categories form{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.categories select{
+    padding: 0.3rem 0.7rem;
+    border: none;
+    font-size: 1.1rem;
+    background-color: var(--color2);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+.btn-light{
+    padding: 0.3rem 0.7rem;
+    font-size: 1.1rem;
+    border: none;
+    background-color: var(--color2);
+    color: var(--textColor);
+    border-radius: 8px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+/* Cards */
+
+.productCard{
+    margin: 0.5rem auto;
+    max-width: 350px;
+    background-color: var(--color1);
+    backdrop-filter: blur(2px);
+    border-radius: 8px 8px 0 0;
+}
+.banner-image{
+    height: 250px;
+    border-radius: 8px 8px 0 0;
+    background-size: cover;
+}
+.banner-image img{
+    border-radius: 8px 8px 0 0;
+}
+.wrapper h3{
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    text-align: center;
+}
+.wrapper p{
+    text-align: justify;
+    margin: 0.3rem 0.7rem;
+}
+.wrapper h5{
+    text-align: center;
+    margin: 0.7rem;
 }
