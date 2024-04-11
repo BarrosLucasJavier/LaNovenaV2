@@ -17,6 +17,7 @@ block content
             .productCard
                 .wrapper
                     div(style="background-image: url(/img/productos/" + val.image + ")").banner-image
-                    h3= val.name 
-                    p= val.description
-                    h5="$ " + val.price
+                    .infoCard
+                        h3= val.name 
+                        p= val.description
+                        h5="$ " + val.price

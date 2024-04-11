@@ -62,3 +62,24 @@ window.addEventListener('load', () => {
         productoEliminar.submit();
     })
 })
+/* Slider About us */
+const btnPrev = document.getElementById('btnPrev');
+const btnNext = document.getElementById('btnNext');
+const slides = document.querySelectorAll('.usersImages img');
+let currentSlide = 0;
+
+const showSlide = () =>{
+    slides.forEach((slide,index) =>{
+        slide.style.display = index === currentSlide ? 'block' : 'none'
+    });
+}
+
+btnPrev.addEventListener('click',()=>{
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide();
+})
+btnNext.addEventListener('click',()=>{
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide();
+})
+showSlide()
