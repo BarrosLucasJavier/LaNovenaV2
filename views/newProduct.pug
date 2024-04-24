@@ -10,12 +10,12 @@ block content
         form.formulario(action=`/admin/create` method="POST" enctype="multipart/form-data" )
             div.formularioSeccion
                 label(for="name") Nombre: 
-                input#name(type="text", name="name" )
+                input.inputDefault#name(type="text", name="name" )
                 if (error && error.name)
                     small.msgError #{error.name.msg}
             div.formularioSeccion
                 label(for="category") Categoria: 
-                select#category(name="category")
+                select.inputDefault#category(name="category")
                     each cat in categories 
                         option(value=cat) #{cat}
                 if (error && error.category)
@@ -29,19 +29,19 @@ block content
                 label(for="price") Precio: 
                 if (error && error.price)
                     small.msgError #{error.price.msg}
-                input#price(type="text", name="price")
+                input.inputDefault#price(type="text", name="price")
             div
                 label(for="order") ¿Por encargo?:
                 label.encargoLabel(for="si") Si 
-                input(type="radio", name="order", id="si", value="Si")
+                input.inputDefault(type="radio", name="order", id="si", value="Si")
                 label.encargoLabel(for="no") No    
-                input(type="radio", name="order", id="no", value="No")
+                input.inputDefault(type="radio", name="order", id="no", value="No")
             div(class="uploadImg") 
                     label(for="image") Imagen
                     .containerImg(style=`background-image: url('/img/productos/no-image.png')`) 
                     input#imageUrl(type="file", name="image")
             div.editButtons 
-                button(type="submit") Guardar 
-                button(type="reset") Cancelar
-                button(type="") Volver 
-                    a(href="/admin") 
+                button.btn-light(type="submit") Guardar 
+                button.btn-light(type="reset") Cancelar
+                button.btn-light(type="") 
+                    a(href="/admin") Volver

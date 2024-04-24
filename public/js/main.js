@@ -40,11 +40,12 @@ window.addEventListener('load', () => {
             }
         })
     }
+
     /* Delete product */
     const formDelete = document.querySelectorAll('#formDelete')
     const modal = document.getElementsByClassName('containerModal')
-    const btnCancelar = document.getElementById('btn-cancelar')
-    const btnEliminar = document.getElementById('btn-eliminar')
+    const btnCancelar = document.getElementById('btn-cancel')
+    const btnEliminar = document.getElementById('btn-delete')
     let productoEliminar = null
 
     formDelete.forEach((buton) =>{
@@ -62,6 +63,7 @@ window.addEventListener('load', () => {
         productoEliminar.submit();
     })
 })
+
 /* Slider About us */
 const btnPrev = document.getElementById('btnPrev');
 const btnNext = document.getElementById('btnNext');

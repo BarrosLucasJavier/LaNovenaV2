@@ -14,7 +14,7 @@ block content
             .adminOpt
                 form(action="/admin/search", method="get") 
                     input#adminBusqueda(type="text", name="searches" placeholder="Nombre del Producto")
-                    button.btnSearch(type="submit") Buscar
+                    button.btn-light(type="submit") Buscar
             .adminOpt 
                 i.fa-solid.fa-right-from-bracket 
                 a(href="/admin/logout")  Salir
@@ -24,9 +24,10 @@ block content
                     .productCard
                         .wrapper
                             div(style="background-image: url(/img/productos/" + product.image + ")").banner-image
-                            h3= product.name 
-                            p= product.description
-                            h5="$ " + product.price
+                            .infoCard
+                                h3= product.name 
+                                p= product.description
+                                h5="$ " + product.price
                         .opt
                             form(action="/admin/edit/" + product.id) 
                                 button.btn-light(type="submit") 
@@ -43,5 +44,6 @@ block content
         .containerModal
             .adminModal 
                 h3 ¿Está seguro de que desea eliminar este producto de forma permanente?
-                button#btn-delete(type="submit") Aceptar 
-                button#btn-cancel(type="reset") Cancelar
+                .adminBtns
+                    button.btn-light#btn-delete(type="submit") Aceptar 
+                    button.btn-light#btn-cancel(type="reset") Cancelar

@@ -8,6 +8,7 @@ block content
     main.loginContainer 
         h1 Sección Administración 
         form(action="/admin" method="POST")
+            i.fa-solid.fa-screwdriver-wrench
             input#user(type="text", name="user", placeholder ="Usuario")
             input#password(type="password", name="password", placeholder="Contraseña")
-            button(type="submit")#btnSubmit Ingresar
+            button.btn-light(type="submit")#btnSubmit Ingresar

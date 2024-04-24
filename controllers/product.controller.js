@@ -118,7 +118,6 @@ const productController = {
                 await productService.store(newProduct);
                 return res.redirect("/admin");
             } else {
-                console.log(errors);
                 const error = errors.mapped();
                 res.render("newProduct", { categories, error });
             }
